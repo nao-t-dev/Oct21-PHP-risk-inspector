@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>Suspicious link samples</title>
+    <style>
+      body { font: 15px/1.7 system-ui, sans-serif; max-width: 760px; margin: 24px auto; padding: 0 16px; }
+      td, th { padding: 4px 8px; border-bottom: 1px solid #ddd; text-align: left; vertical-align: top; }
+      .icon::before { content: "★ "; } /* Site-owned pseudo-element must survive highlighting. */
+    </style>
+  </head>
+  <body>
+    <h1>怪しいリンクのサンプル</h1>
+    <p><a href="/">← シナリオ一覧</a>（同一サイト: ハイライトなし）</p>
+    <p>
+      サンプルのリンク先は、実在しないドメイン（<code>.example</code>）と文書用のIPアドレス（RFC 5737）です。
+      短縮URLの判定には実在するサービス名が必要なため、<code>bit.ly</code> だけはそのまま使っています。
+      誤って移動しないように、表とページ下部にあるサンプルリンクは、クリックしても移動しません。
+    </p>
+
+    <table>
+      <tr><th>期待</th><th>リンク</th></tr>
+      <tr><td>R1 高</td><td><a href="http://192.0.2.1/login">ルーターにログイン</a></td></tr>
+      <tr><td>R1 高（整数表記）</td><td><a href="http://3221225985/">特典ページ</a></td></tr>
+      <tr><td>R2 高</td><td><a href="https://evil.example/login">paypal.com</a></td></tr>
+      <tr><td>R2 高（文中URL）</td><td><a href="https://evil.example/">公式 https://www.amazon.co.jp/ はこちら</a></td></tr>
+      <tr><td>R3a 高</td><td><a href="data:text/html,<h1>hi</h1>">data: リンク</a></td></tr>
+      <tr><td>R3b（既定OFF）</td><td><a href="javascript:void(0)">モーダルを開く</a></td></tr>
+      <tr><td>R4 高</td><td><a href="https://www.google.com@evil.example/">Google アカウント</a></td></tr>
+      <tr><td>R5 中</td><td><a href="https://xn--pple-43d.example/">apple 公式</a></td></tr>
+      <tr><td>R6 低（外部のみ）／赤のページでは注意</td><td><a href="https://www.example.net/">外部サイト</a></td></tr>
+      <tr><td>R7 注意（黄）／赤のページでは高</td><td><a href="https://bit.ly/">短縮URL</a></td></tr>
+      <tr><td>R7 + 偽装テキスト: 注意／赤のページでは高（R2 は適用しない）</td><td><a href="https://bit.ly/">paypal.com</a></td></tr>
+      <tr><td>R8 中（https ページ上のみ）</td><td><a href="http://example.org/">http のリンク</a></td></tr>
+      <tr><td>R6 低 + 既存 ::before／赤のページでは注意</td><td><a class="icon" href="https://www.example.com/">アイコン付き外部リンク</a></td></tr>
+      <tr><td>なし</td><td><a href="mailto:test@example.com">メール</a> / <a href="#top">ページ内</a> / <a href="/plain">同一サイト</a></td></tr>
+      <tr><td>なし（R2 誤検出しない）</td><td><a href="https://example.com/report.pdf">report.pdf</a></td></tr>
+    </table>
+
+    <h2>動的に追加されるリンク</h2>
+    <p id="dynamic">1秒後にリンクが追加されます…</p>
+    <script>
+      // Sample links are for highlighting only; never navigate to them.
+      document.addEventListener('click', (e) => {
+        if (e.target instanceof Element && e.target.closest('table a:not([href^="/"]), #dynamic a')) e.preventDefault();
+      });
+      setTimeout(() => {
+        const a = document.createElement('a');
+        a.href = 'http://198.51.100.7/admin';
+        a.textContent = '動的に追加された IP リンク（R1 高）';
+        document.getElementById('dynamic').replaceChildren(a);
+      }, 1000);
+    </script>
+
+    <div style="height: 150vh"></div>
+    <p>スクロールしてもマークが右下に残ることを確認してください。</p>
+  </body>
+</html>

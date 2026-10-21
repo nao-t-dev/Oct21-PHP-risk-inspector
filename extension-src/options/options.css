@@ -1,0 +1,40 @@
+:root {
+  --bg: #f8f9fa; --card: #ffffff; --fg: #202124; --muted: #5f6368; --line: #dadce0;
+  --danger: #d93025; --warning: #e37400; --caution: #a56a00; --ok: #188038;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #202124; --card: #2d2e31; --fg: #e8eaed; --muted: #9aa0a6; --line: #5f6368;
+    --danger: #f28b82; --warning: #fcad70; --caution: #fdd663; --ok: #81c995; }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font: 14px/1.6 system-ui, -apple-system, "Segoe UI", "Hiragino Sans", "Noto Sans JP", sans-serif;
+}
+main { max-width: 720px; margin: 0 auto; padding: 24px 16px 48px; }
+header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+h1 { font-size: 20px; margin: 0; }
+h2 { font-size: 15px; margin: 0 0 8px; }
+section { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px; margin-bottom: 14px; }
+.row { display: flex; align-items: center; gap: 8px; padding: 3px 0; cursor: pointer; }
+.indent { padding-left: 26px; }
+.block { display: block; margin-top: 10px; }
+.block span { display: block; font-weight: 600; margin-bottom: 4px; }
+textarea {
+  width: 100%; font: 13px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; padding: 8px;
+  background: var(--bg); color: var(--fg); border: 1px solid var(--line); border-radius: 6px;
+}
+.note { color: var(--muted); font-size: 13px; margin: 0 0 8px; }
+.sev { display: inline-block; min-width: 3.5em; font-size: 12px; font-weight: 600; }
+.sev[data-sev="high"] { color: var(--danger); }
+.sev[data-sev="medium"] { color: var(--warning); }
+.sev[data-sev="caution"] { color: var(--caution); }
+.sev[data-sev="low"] { color: var(--muted); }
+.rule-id { color: var(--muted); font-size: 12px; min-width: 2.6em; }
+.saved { margin-left: auto; color: var(--ok); font-weight: 600; }
+button {
+  font: inherit; padding: 6px 14px; border-radius: 6px; cursor: pointer;
+  background: var(--bg); color: var(--fg); border: 1px solid var(--line);
+}
+[hidden] { display: none !important; }

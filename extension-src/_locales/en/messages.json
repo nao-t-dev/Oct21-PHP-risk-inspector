@@ -1,0 +1,266 @@
+{
+  "extName": {
+    "message": "Oct21 PHP Risk Inspector",
+    "description": "Extension name. Also change manifest.json if renamed."
+  },
+  "extShortName": {
+    "message": "Oct21 PHP"
+  },
+  "extDescription": {
+    "message": "Quick check for web professionals: flags signs of unpatched PHP and suspicious links on sites you run (unofficial)."
+  },
+  "state_VULNERABLE": {
+    "message": "May be unpatched"
+  },
+  "state_EOL": {
+    "message": "End-of-life version"
+  },
+  "state_UNKNOWN": {
+    "message": "PHP (version unknown)"
+  },
+  "state_PRERELEASE": {
+    "message": "PHP pre-release"
+  },
+  "state_PATCHED": {
+    "message": "Fixed version or later"
+  },
+  "state_NOT_DETECTED": {
+    "message": "PHP hidden or not used"
+  },
+  "state_desc_VULNERABLE": {
+    "message": "The PHP version this site reports predates the 2026-10-21 security fixes. If you manage this site, check the actual version on the server and consider updating to a fixed release."
+  },
+  "state_desc_EOL": {
+    "message": "This PHP branch is end-of-life and receives no official fixes (whether minimal backports were applied cannot be seen from outside). If you manage this site, consider migrating to a supported version."
+  },
+  "state_desc_UNKNOWN": {
+    "message": "There are signs this site uses PHP, but it does not disclose its version, so its patch status is unknown."
+  },
+  "state_desc_PRERELEASE": {
+    "message": "This is a pre-release PHP build (RC / beta etc.). It is not meant for production and its patch status cannot be determined."
+  },
+  "state_desc_PATCHED": {
+    "message": "The reported version is at or above the fixed release. Version headers can be altered, so this does not guarantee safety. Please also check the actual version on the server."
+  },
+  "state_desc_NOT_DETECTED": {
+    "message": "There is no PHP marker in the response headers or URL. The site either does not disclose PHP information or does not use PHP. Many sites hide PHP and version information for security."
+  },
+  "evidence_x_powered_by": {
+    "message": "X-Powered-By header"
+  },
+  "evidence_server": {
+    "message": "Server header"
+  },
+  "evidence_set_cookie": {
+    "message": "Cookie"
+  },
+  "evidence_url": {
+    "message": "URL"
+  },
+  "note_distro": {
+    "message": "This is a distribution build. It may include backported fixes even if the version number looks old."
+  },
+  "panel_evidence": {
+    "message": "Detected from"
+  },
+  "panel_advisory": {
+    "message": "Security advisory"
+  },
+  "panel_fixed_versions": {
+    "message": "Fixed in: $VERSIONS$",
+    "placeholders": {
+      "versions": {
+        "content": "$1"
+      }
+    }
+  },
+  "panel_links": {
+    "message": "Suspicious links on this page"
+  },
+  "panel_no_suspicious_links": {
+    "message": "None found"
+  },
+  "panel_links_disabled": {
+    "message": "Link checking is off for this page"
+  },
+  "panel_disclaimer": {
+    "message": "This is a quick estimate based on publicly visible information. Version headers can be hidden or spoofed, so it does not guarantee safety, nor does it judge the safety of third-party sites."
+  },
+  "panel_close": {
+    "message": "Close"
+  },
+  "panel_hide_page": {
+    "message": "Hide on this page"
+  },
+  "panel_hide_site": {
+    "message": "Always hide on this site"
+  },
+  "badge_count_title": {
+    "message": "Number of links that need attention"
+  },
+  "severity_high_count": {
+    "message": "High $COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "severity_medium_count": {
+    "message": "Medium $COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "severity_caution_count": {
+    "message": "Caution $COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "severity_low_count": {
+    "message": "Low $COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "tooltip_destination": {
+    "message": "Goes to:"
+  },
+  "severity_high": {
+    "message": "High"
+  },
+  "severity_medium": {
+    "message": "Medium"
+  },
+  "severity_caution": {
+    "message": "Caution"
+  },
+  "severity_low": {
+    "message": "Low"
+  },
+  "rule_R1": {
+    "message": "URL uses an IP address"
+  },
+  "rule_R2": {
+    "message": "Link text shows a different domain"
+  },
+  "rule_R3a": {
+    "message": "Dangerous scheme (data: / vbscript:)"
+  },
+  "rule_R3b": {
+    "message": "javascript: link"
+  },
+  "rule_R4": {
+    "message": "URL with \"@\" (user info) spoofing"
+  },
+  "rule_R5": {
+    "message": "Internationalized (Punycode) domain"
+  },
+  "rule_R6": {
+    "message": "External domain"
+  },
+  "rule_R7": {
+    "message": "URL shortener"
+  },
+  "rule_R8": {
+    "message": "Downgrade from HTTPS to HTTP"
+  },
+  "popup_links": {
+    "message": "Suspicious links on this page"
+  },
+  "popup_rule": {
+    "message": "Rule"
+  },
+  "popup_count": {
+    "message": "Count"
+  },
+  "popup_exclude_site": {
+    "message": "Turn off all features on this site"
+  },
+  "popup_open_options": {
+    "message": "Open settings"
+  },
+  "popup_unsupported": {
+    "message": "This page is not supported."
+  },
+  "popup_reload": {
+    "message": "No data yet. Please reload the page."
+  },
+  "options_title": {
+    "message": "Oct21 PHP Risk Inspector settings"
+  },
+  "options_section_badge": {
+    "message": "Floating badge"
+  },
+  "options_show_badge": {
+    "message": "Show the floating badge"
+  },
+  "options_show_not_detected": {
+    "message": "Also show the badge when PHP is hidden or not used (yellow / grey)"
+  },
+  "options_section_links": {
+    "message": "Suspicious link highlighting"
+  },
+  "options_highlight_links": {
+    "message": "Highlight suspicious links"
+  },
+  "options_scope_all": {
+    "message": "On all sites"
+  },
+  "options_scope_php": {
+    "message": "Only on sites with a PHP warning (red / yellow)"
+  },
+  "options_section_rules": {
+    "message": "Rules"
+  },
+  "options_rules_note": {
+    "message": "When a link matches several rules, the most severe one decides its style."
+  },
+  "options_section_sites": {
+    "message": "Per-site settings"
+  },
+  "options_excluded_sites": {
+    "message": "Sites where all features are off"
+  },
+  "options_badge_hidden_sites": {
+    "message": "Sites where only the badge is hidden"
+  },
+  "options_sites_help": {
+    "message": "One hostname per line (e.g. example.com). Subdomains are included."
+  },
+  "options_saved": {
+    "message": "Saved"
+  },
+  "options_reset": {
+    "message": "Reset to defaults"
+  },
+  "options_section_about": {
+    "message": "About"
+  },
+  "options_about": {
+    "message": "An unofficial tool for people who build and operate websites to quickly check their own sites, based on the PHP security advisory of 2026-10-21. Results are estimates and do not judge the safety of third-party sites. The extension makes no network requests of its own and does not accumulate browsing history."
+  },
+  "popup_site_target": {
+    "message": "Applies to: $HOST$",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "severity_on_risky_php": {
+    "message": "(\"$SEVERITY$\" on pages reporting an unpatched or end-of-life PHP)",
+    "placeholders": {
+      "severity": {
+        "content": "$1"
+      }
+    }
+  }
+}

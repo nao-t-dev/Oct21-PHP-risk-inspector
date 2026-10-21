@@ -1,0 +1,27 @@
+{
+  "name": "oct21-php-risk-inspector",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nao-t-dev/Oct21-PHP-risk-inspector.git"
+  },
+  "homepage": "https://github.com/nao-t-dev/Oct21-PHP-risk-inspector#readme",
+  "bugs": {
+    "url": "https://github.com/nao-t-dev/Oct21-PHP-risk-inspector/issues"
+  },
+  "description": "Chrome extension: flags sites running PHP versions affected by the 2026-10-21 advisory and highlights suspicious links.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test \"develop/test/unit/**/*.test.js\"",
+    "typecheck": "tsc -p jsconfig.json",
+    "icons": "node develop/scripts/make-icons.mjs",
+    "serve": "node develop/test/site/server.mjs",
+    "zip": "node develop/scripts/package.mjs"
+  },
+  "devDependencies": {
+    "@types/chrome": "0.3.4",
+    "typescript": "6.0.3"
+  }
+}

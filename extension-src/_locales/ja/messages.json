@@ -1,0 +1,266 @@
+{
+  "extName": {
+    "message": "Oct21 PHP Risk Inspector",
+    "description": "Extension name. Also change manifest.json if renamed."
+  },
+  "extShortName": {
+    "message": "Oct21 PHP"
+  },
+  "extDescription": {
+    "message": "Web担当者向けの簡易チェック: 自社・運用中のサイトに修正前のPHPの兆候や怪しいリンクがないかを表示します（非公式ツール）。"
+  },
+  "state_VULNERABLE": {
+    "message": "未修正の可能性"
+  },
+  "state_EOL": {
+    "message": "サポート終了版"
+  },
+  "state_UNKNOWN": {
+    "message": "PHP（バージョン不明）"
+  },
+  "state_PRERELEASE": {
+    "message": "PHP 開発版"
+  },
+  "state_PATCHED": {
+    "message": "修正版以降のバージョン"
+  },
+  "state_NOT_DETECTED": {
+    "message": "PHP非公開、または未使用"
+  },
+  "state_desc_VULNERABLE": {
+    "message": "このサイトが公開しているPHPのバージョンは、2026-10-21 のセキュリティ修正より前のものです。このサイトを管理している場合は、サーバー上の実際のバージョンを確認し、修正版への更新を検討してください。"
+  },
+  "state_desc_EOL": {
+    "message": "サポートが終了したPHPです。公式の修正版は提供されていません（最小限のバックポートが当たっているかどうかは外部から判別できません）。このサイトを管理している場合は、サポート中のバージョンへの移行を検討してください。"
+  },
+  "state_desc_UNKNOWN": {
+    "message": "PHPを使っている兆候がありますが、バージョンは公開されていません。修正済みかどうかは判断できません。"
+  },
+  "state_desc_PRERELEASE": {
+    "message": "開発版（RC / beta など）のPHPです。本番環境向けではなく、修正状況は判断できません。"
+  },
+  "state_desc_PATCHED": {
+    "message": "公開されているバージョンの表記は修正版以降です。表記は書き換えられる場合もあるため、安全を保証するものではありません。サーバー上の実際のバージョンも確認してください。"
+  },
+  "state_desc_NOT_DETECTED": {
+    "message": "レスポンスヘッダやURLにPHPの表記がありません。PHPの情報を公開していないか、PHPを使っていないサイトです。多くのサイトはセキュリティのためにPHPやバージョンの情報を隠しています。"
+  },
+  "evidence_x_powered_by": {
+    "message": "X-Powered-By ヘッダ"
+  },
+  "evidence_server": {
+    "message": "Server ヘッダ"
+  },
+  "evidence_set_cookie": {
+    "message": "Cookie"
+  },
+  "evidence_url": {
+    "message": "URL"
+  },
+  "note_distro": {
+    "message": "ディストリビューション版のPHPです。番号が古くても、ディストリ側で修正が取り込まれている場合があります。"
+  },
+  "panel_evidence": {
+    "message": "検出の根拠"
+  },
+  "panel_advisory": {
+    "message": "セキュリティアドバイザリ"
+  },
+  "panel_fixed_versions": {
+    "message": "修正版: $VERSIONS$",
+    "placeholders": {
+      "versions": {
+        "content": "$1"
+      }
+    }
+  },
+  "panel_links": {
+    "message": "このページの怪しいリンク"
+  },
+  "panel_no_suspicious_links": {
+    "message": "見つかっていません"
+  },
+  "panel_links_disabled": {
+    "message": "このページではリンクチェックが無効です"
+  },
+  "panel_disclaimer": {
+    "message": "表示は外部から見える情報による簡易的な推定です。バージョン表記は隠したり偽装したりできるため、安全を保証するものではありません。また、第三者のサイトの安全性を判定するものでもありません。"
+  },
+  "panel_close": {
+    "message": "閉じる"
+  },
+  "panel_hide_page": {
+    "message": "このページで非表示"
+  },
+  "panel_hide_site": {
+    "message": "このサイトで常に非表示"
+  },
+  "badge_count_title": {
+    "message": "注意が必要なリンクの数"
+  },
+  "severity_high_count": {
+    "message": "高 $COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "severity_medium_count": {
+    "message": "中 $COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "severity_caution_count": {
+    "message": "注意 $COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "severity_low_count": {
+    "message": "低 $COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "tooltip_destination": {
+    "message": "リンク先:"
+  },
+  "severity_high": {
+    "message": "高"
+  },
+  "severity_medium": {
+    "message": "中"
+  },
+  "severity_caution": {
+    "message": "注意"
+  },
+  "severity_low": {
+    "message": "低"
+  },
+  "rule_R1": {
+    "message": "IPアドレスのURL"
+  },
+  "rule_R2": {
+    "message": "表示テキストと実際のリンク先が違う"
+  },
+  "rule_R3a": {
+    "message": "危険なスキーム（data: / vbscript:）"
+  },
+  "rule_R3b": {
+    "message": "javascript: リンク"
+  },
+  "rule_R4": {
+    "message": "@ を使った偽装URL"
+  },
+  "rule_R5": {
+    "message": "国際化ドメイン（Punycode）"
+  },
+  "rule_R6": {
+    "message": "外部ドメイン"
+  },
+  "rule_R7": {
+    "message": "短縮URL"
+  },
+  "rule_R8": {
+    "message": "HTTPS から HTTP への移動"
+  },
+  "popup_links": {
+    "message": "このページの怪しいリンク"
+  },
+  "popup_rule": {
+    "message": "ルール"
+  },
+  "popup_count": {
+    "message": "件数"
+  },
+  "popup_exclude_site": {
+    "message": "このサイトでは全機能をオフにする"
+  },
+  "popup_open_options": {
+    "message": "設定を開く"
+  },
+  "popup_unsupported": {
+    "message": "このページでは動作しません。"
+  },
+  "popup_reload": {
+    "message": "情報がありません。ページを再読み込みしてください。"
+  },
+  "options_title": {
+    "message": "Oct21 PHP Risk Inspector の設定"
+  },
+  "options_section_badge": {
+    "message": "スクロール追従マーク"
+  },
+  "options_show_badge": {
+    "message": "スクロール追従マークを表示する"
+  },
+  "options_show_not_detected": {
+    "message": "PHP非公開、または未使用のサイトでもマークを表示する（黄・グレー）"
+  },
+  "options_section_links": {
+    "message": "怪しいリンクのハイライト"
+  },
+  "options_highlight_links": {
+    "message": "怪しいリンクをハイライトする"
+  },
+  "options_scope_all": {
+    "message": "すべてのサイトで"
+  },
+  "options_scope_php": {
+    "message": "PHPの警告（赤・黄）が出ているサイトのみ"
+  },
+  "options_section_rules": {
+    "message": "ルール"
+  },
+  "options_rules_note": {
+    "message": "1つのリンクが複数のルールに当てはまる場合は、最も重いものの見た目になります。"
+  },
+  "options_section_sites": {
+    "message": "サイトごとの設定"
+  },
+  "options_excluded_sites": {
+    "message": "全機能をオフにするサイト"
+  },
+  "options_badge_hidden_sites": {
+    "message": "マークだけを非表示にするサイト"
+  },
+  "options_sites_help": {
+    "message": "1行に1つのホスト名（例: example.com）。サブドメインも対象になります。"
+  },
+  "options_saved": {
+    "message": "保存しました"
+  },
+  "options_reset": {
+    "message": "初期設定に戻す"
+  },
+  "options_section_about": {
+    "message": "この拡張機能について"
+  },
+  "options_about": {
+    "message": "Webサイトの制作・運用に携わる人が、自社サイトや運用中のサイトを簡易的にチェックするための非公式ツールです（PHPセキュリティアドバイザリ 2026-10-21 に基づく）。表示は推定であり、第三者のサイトの安全性を判定するものではありません。拡張機能から外部への通信は行わず、閲覧履歴も蓄積しません。"
+  },
+  "popup_site_target": {
+    "message": "対象: $HOST$",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "severity_on_risky_php": {
+    "message": "（未修正・サポート終了のPHPのページでは「$SEVERITY$」）",
+    "placeholders": {
+      "severity": {
+        "content": "$1"
+      }
+    }
+  }
+}

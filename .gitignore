@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.DS_Store
+
+# Internal docs (spec, AI guide, store notes) are kept local and not published.
+internal/
+/CLAUDE.md

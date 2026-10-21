@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header>
+      <img src="../icons/icon32.png" alt="" width="20" height="20" />
+      <h1 data-i18n="extName"></h1>
+    </header>
+
+    <section id="status" class="status" data-level="unavailable">
+      <div class="status-head"><span class="dot"></span><strong id="status-label"></strong></div>
+      <p id="status-desc"></p>
+      <p id="status-distro" class="note" data-i18n="note_distro" hidden></p>
+      <ul id="evidence"></ul>
+    </section>
+
+    <section id="links-section">
+      <h2 data-i18n="popup_links"></h2>
+      <p id="links-empty" class="note" hidden></p>
+      <table id="links-table" hidden>
+        <thead>
+          <tr><th data-i18n="popup_rule"></th><th data-i18n="popup_count"></th></tr>
+        </thead>
+        <tbody id="links-body"></tbody>
+      </table>
+    </section>
+
+    <section id="site-section">
+      <label class="toggle"><input type="checkbox" id="exclude-site" /> <span data-i18n="popup_exclude_site"></span></label>
+      <div id="site-host" class="note"></div>
+    </section>
+
+    <footer>
+      <button type="button" id="open-options" data-i18n="popup_open_options"></button>
+    </footer>
+
+    <script src="../lib/advisories.js"></script>
+    <script src="../lib/version.js"></script>
+    <script src="../lib/link-rules.js"></script>
+    <script src="../lib/settings.js"></script>
+    <script src="../lib/i18n.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

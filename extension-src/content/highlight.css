@@ -1,0 +1,33 @@
+/*
+ * Link highlights. Only outline / background are used so page layout
+ * never shifts. Pseudo-elements are avoided because many sites already use ::before
+ * on links for icon fonts, and overriding them would break those icons.
+ */
+a[data-pag-risk="high"] {
+  outline: 2px solid #d93025 !important;
+  outline-offset: 1px !important;
+  background-color: rgba(217, 48, 37, 0.14) !important;
+  border-radius: 2px;
+}
+
+a[data-pag-risk="medium"] {
+  outline: 2px solid #e37400 !important;
+  outline-offset: 1px !important;
+  background-color: rgba(227, 116, 0, 0.1) !important;
+  border-radius: 2px;
+}
+
+/* Caution = URL shorteners (R7): common on SNS, so a yellow "be aware" style. */
+a[data-pag-risk="caution"] {
+  outline: 2px solid #f2b600 !important;
+  outline-offset: 1px !important;
+  background-color: rgba(242, 182, 0, 0.14) !important;
+  border-radius: 2px;
+}
+
+/* Low = only "external domain" (R6) on pages without risky PHP. A dotted frame: visible, but quieter than the solid frames above. */
+a[data-pag-risk="low"] {
+  outline: 2px dotted #5f6368 !important;
+  outline-offset: 1px !important;
+  border-radius: 2px;
+}

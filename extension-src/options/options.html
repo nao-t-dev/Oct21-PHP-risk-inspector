@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-i18n="options_title"></title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <img src="../icons/icon48.png" alt="" width="32" height="32" />
+        <h1 data-i18n="options_title"></h1>
+        <span id="saved" class="saved" data-i18n="options_saved" hidden></span>
+      </header>
+
+      <section>
+        <h2 data-i18n="options_section_badge"></h2>
+        <label class="row"><input type="checkbox" name="showBadge" /> <span data-i18n="options_show_badge"></span></label>
+        <label class="row"><input type="checkbox" name="showNotDetectedBadge" /> <span data-i18n="options_show_not_detected"></span></label>
+      </section>
+
+      <section>
+        <h2 data-i18n="options_section_links"></h2>
+        <label class="row"><input type="checkbox" name="highlightLinks" /> <span data-i18n="options_highlight_links"></span></label>
+        <div class="indent">
+          <label class="row"><input type="radio" name="highlightScope" value="all" /> <span data-i18n="options_scope_all"></span></label>
+          <label class="row"><input type="radio" name="highlightScope" value="php-warning" /> <span data-i18n="options_scope_php"></span></label>
+        </div>
+      </section>
+
+      <section>
+        <h2 data-i18n="options_section_rules"></h2>
+        <p class="note" data-i18n="options_rules_note"></p>
+        <div id="rules"></div>
+      </section>
+
+      <section>
+        <h2 data-i18n="options_section_sites"></h2>
+        <p class="note" data-i18n="options_sites_help"></p>
+        <label class="block">
+          <span data-i18n="options_excluded_sites"></span>
+          <textarea name="excludedSites" rows="4" spellcheck="false"></textarea>
+        </label>
+        <label class="block">
+          <span data-i18n="options_badge_hidden_sites"></span>
+          <textarea name="badgeHiddenSites" rows="4" spellcheck="false"></textarea>
+        </label>
+      </section>
+
+      <section>
+        <h2 data-i18n="options_section_about"></h2>
+        <p data-i18n="options_about"></p>
+        <p class="note" id="version"></p>
+        <button type="button" id="reset" data-i18n="options_reset"></button>
+      </section>
+    </main>
+
+    <script src="../lib/advisories.js"></script>
+    <script src="../lib/version.js"></script>
+    <script src="../lib/link-rules.js"></script>
+    <script src="../lib/settings.js"></script>
+    <script src="../lib/i18n.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>
