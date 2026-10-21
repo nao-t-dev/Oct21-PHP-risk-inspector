@@ -27,15 +27,15 @@ test('R1 IP address hosts, including integer notation', () => {
 });
 
 test('R2 link text shows a different domain', () => {
-  const r = check('https://evil.example/login', 'paypal.com');
+  const r = check('https://evil.example/login', 'example.com');
   assert.ok(r.matches.includes('R2'));
   assert.equal(r.severity, 'high'); // External + R2 -> normal (high) highlight.
-  assert.ok(check('https://evil.example/', 'https://www.paypal.com/signin').matches.includes('R2'));
-  assert.ok(check('https://evil.example/', '公式サイト https://paypal.com/ はこちら').matches.includes('R2'));
+  assert.ok(check('https://evil.example/', 'https://www.example.com/signin').matches.includes('R2'));
+  assert.ok(check('https://evil.example/', '公式サイト https://example.com/ はこちら').matches.includes('R2'));
 });
 
 test('R2 does not fire for matching or non-domain text', () => {
-  assert.ok(!check('https://www.paypal.com/', 'paypal.com')?.matches.includes('R2'));
+  assert.ok(!check('https://www.example.com/', 'example.com')?.matches.includes('R2'));
   assert.ok(!check('https://other.example/', 'Click here')?.matches.includes('R2'));
   assert.ok(!check('https://other.example/', 'report.pdf')?.matches.includes('R2'));
   assert.ok(!check('https://other.example/', 'v1.2.3')?.matches.includes('R2'));
@@ -109,10 +109,10 @@ test('shortened links skip R2: SNS auto-shortening is not flagged high', () => {
     matches: ['R6', 'R7'],
   });
   // A shortener disguised as another domain: caution on ordinary pages, high on risky-PHP pages.
-  assert.equal(check('https://bit.ly/abc', 'paypal.com', undefined, SAFE).severity, 'caution');
-  assert.equal(check('https://bit.ly/abc', 'paypal.com', undefined, RISKY).severity, 'high');
+  assert.equal(check('https://bit.ly/abc', 'example.com', undefined, SAFE).severity, 'caution');
+  assert.equal(check('https://bit.ly/abc', 'example.com', undefined, RISKY).severity, 'high');
   // Non-shortener mismatches are still high everywhere.
-  assert.equal(check('https://evil.example/', 'paypal.com', undefined, SAFE).severity, 'high');
+  assert.equal(check('https://evil.example/', 'example.com', undefined, SAFE).severity, 'high');
 });
 
 test('risky-PHP context escalates only rules that define severityOnRiskyPhp (R6, R7)', () => {

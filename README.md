@@ -63,10 +63,10 @@ Webサイトの制作・運用・保守に携わる人向けの Chrome 拡張機
 | ID | ルール | 例 | 重さ | 既定 |
 |---|---|---|---|---|
 | R1 | IP アドレスの URL（整数表記・16進表記も含む） | `http://192.0.2.1/`、`http://3221225985/` | 高 | ON |
-| R2 | 表示テキストと実際のリンク先が違う（短縮 URL には適用しない） | 表示 `paypal.com` → 実体 `evil.example` | 高 | ON |
+| R2 | 表示テキストと実際のリンク先が違う（短縮 URL には適用しない） | 表示 `example.com` → 実体 `evil.example` | 高 | ON |
 | R3a | 危険なスキーム | `data:`、`vbscript:` | 高 | ON |
 | R3b | `javascript:` リンク（モーダルの開閉などで日常的に使われるため） | `javascript:void(0)` | 中 | **OFF** |
-| R4 | `@` を使った偽装 URL | `https://www.google.com@evil.example/` | 高 | ON |
+| R4 | `@` を使った偽装 URL | `https://www.example.com@evil.example/` | 高 | ON |
 | R5 | 国際化ドメイン（Punycode）への外部リンク | `xn--pple-43d.example` | 中 | ON |
 | R6 | 外部ドメイン（ページと登録ドメインが違う） | | 低（未修正・サポート終了のPHPのページでは注意） | ON |
 | R7 | 短縮 URL | `bit.ly`、`t.co` など | 注意（未修正・サポート終了のPHPのページでは高） | ON |
@@ -80,7 +80,7 @@ Webサイトの制作・運用・保守に携わる人向けの Chrome 拡張機
   - 短縮 URL は実際のリンク先が見えず、表示テキストと一致しないのが普通なので、R2 は適用しません。
 - **R2 の判定方法:**
   - テキストの中に `http://` か `https://` で始まる URL があれば、それを取り出してリンク先と比べます。前後に別の文字があっても構いません。
-  - `http://` のないドメイン（`paypal.com` など）は、テキスト全体がドメインのときだけ比べます。「report.pdf」のようなファイル名などをドメインと誤って判定しないためです。
+  - `http://` のないドメイン（`example.com` など）は、テキスト全体がドメインのときだけ比べます。「report.pdf」のようなファイル名などをドメインと誤って判定しないためです。
   - サブドメインの違いは無視して、登録ドメイン単位で比べます（`www.example.com` と `shop.example.com` は同じ扱い）。
 - **判定しないもの:** 同じサイト内のリンク、ページ内リンク（`#...`）、`mailto:`、`tel:` は対象外です。
 - **登録ドメインの判定:** `example.co.jp` のような判定には、Public Suffix List（同梱の [tldts](https://github.com/remusao/tldts)）を使います。
